@@ -17,7 +17,16 @@ namespace EFCodeFirst
 
         #region 数据集
         public DbSet<AccountUser> AccountUsers { get; set; }
+        public DbSet<Provice> Provices { get; set; }
+        public DbSet<City> Citys { get; set; }
+        #endregion
 
-        #endregion  
+        #region Fluent API配置
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Configurations.Add(new ProviceConfiguration());
+            modelBuilder.Configurations.Add(new CityConfiguration());
+        }
+        #endregion
     }
 }

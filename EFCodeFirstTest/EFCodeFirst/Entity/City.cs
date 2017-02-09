@@ -22,5 +22,10 @@ namespace EFCodeFirst.Entity
         /// 城市名称
         /// </summary>
         public string CityName { get; set; }
+
+        /// <summary>
+        /// 所属城市
+        /// </summary>
+        public Provice ProviceData { get; set; }
     }
 }

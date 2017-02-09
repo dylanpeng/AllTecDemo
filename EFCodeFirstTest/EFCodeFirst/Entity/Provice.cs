@@ -17,5 +17,10 @@ namespace EFCodeFirst.Entity
         /// 省份名
         /// </summary>
         public string ProviceName { get; set; }
+
+        /// <summary>
+        /// 省份下城市
+        /// </summary>
+        public List<City> Citys { get; set; }
     }
 }

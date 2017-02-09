@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace EFCodeFirst.Entity
@@ -10,6 +11,7 @@ namespace EFCodeFirst.Entity
         /// 用户ID
         /// </summary>
         [Column("ID")]
+        [Key]
         public int AccountUserId { get; set; }
 
         /// <summary>
