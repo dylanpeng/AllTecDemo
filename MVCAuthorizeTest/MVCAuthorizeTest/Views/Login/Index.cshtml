@@ -1,0 +1,40 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<div class="row">
+    <div class="col-md-8">
+        <section id="loginForm">
+            @using (Html.BeginForm("Index", "Login", new { returnUrl = ViewBag.ReturnUrl }, FormMethod.Post))
+            {
+                <h4>使用本地帐户登录。</h4>
+                <hr />
+                <div class="form-group">
+                    @Html.Label("labelName", "用户名", new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBox("name", "", new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.Label("labelPassword", "密码", new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.Password("password", "", new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <div class="checkbox">
+                            @Html.CheckBox("rememberMe", false)
+                            @Html.Label("labelrememberMe", "保持登录", new { @class = "col-md-2 control-label" })
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="登录" class="btn btn-default" />
+                    </div>
+                </div>
+            }
+        </section>
+    </div>
+</div>
