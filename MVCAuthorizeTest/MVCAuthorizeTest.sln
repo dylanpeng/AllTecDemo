@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVCAuthorizeTest", "MVCAuth
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVCAuthorizeTest.Data", "MVCAuthorizeTest.Data\MVCAuthorizeTest.Data.csproj", "{017852FB-377A-4993-8ADE-322576250E01}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVCControllerAuthTest", "MVCControllerAuthTest\MVCControllerAuthTest.csproj", "{AD5BD551-1404-4D65-9EBE-8728948CC7AA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{017852FB-377A-4993-8ADE-322576250E01}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{017852FB-377A-4993-8ADE-322576250E01}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{017852FB-377A-4993-8ADE-322576250E01}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD5BD551-1404-4D65-9EBE-8728948CC7AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD5BD551-1404-4D65-9EBE-8728948CC7AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD5BD551-1404-4D65-9EBE-8728948CC7AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD5BD551-1404-4D65-9EBE-8728948CC7AA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
