@@ -14,7 +14,8 @@ namespace MsmqTest
             var msmqManager = new MSMQManager();
             for (int i = 1; i <= 10; i++)
             {
-                msmqManager.Send(string.Format("消息{0}", i));
+                MsmqData data = new MsmqData() { Id = i, Name = string.Format("Name{0}", i) };
+                msmqManager.Send(data);
             }
             var msg = msmqManager.ReceiveMessage();
             msmqManager.WriteAllMessage();

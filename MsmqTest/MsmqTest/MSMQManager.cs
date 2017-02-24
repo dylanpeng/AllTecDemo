@@ -33,9 +33,9 @@ namespace MsmqTest
             }
         }
 
-        public void Send(string body)
+        public void Send(object body)
         {
-            _msmq.Send(new Message(body, new BinaryMessageFormatter()));
+            _msmq.Send(new Message(body, new XmlMessageFormatter(new Type[] { typeof(MsmqData) })));
         }
 
         public object ReceiveMessage()
@@ -43,8 +43,10 @@ namespace MsmqTest
             var msg = _msmq.Receive();
             if (msg != null)
             {
-                msg.Formatter = new BinaryMessageFormatter();
-                Console.WriteLine("消息内容：{0}", msg.Body);
+                //msg.Formatter = new BinaryMessageFormatter();
+                msg.Formatter = new XmlMessageFormatter(new Type[] { typeof(MsmqData) });
+                var body = (MsmqData)msg.Body;
+                Console.WriteLine("消息内容：{0},{1}", body.Id, body.Name);
                 return msg.Body;
             }
             return null;
@@ -56,17 +58,13 @@ namespace MsmqTest
             while (enumerator.MoveNext())
             {
                 Message msg = (Message)(enumerator.Current);
-                msg.Formatter = new BinaryMessageFormatter();
-                Console.WriteLine("消息内容：{0}", msg.Body);
+                //msg.Formatter = new BinaryMessageFormatter();
+                msg.Formatter = new XmlMessageFormatter(new Type[] { typeof(MsmqData) });
+                var body = (MsmqData)msg.Body;
+                Console.WriteLine("消息内容：{0},{1}", body.Id, body.Name);
                 _msmq.ReceiveById(msg.Id);
 
             }
-            //var msgs = _msmq.GetAllMessages();
-            //for (int i = 0; i < msgs.Length; i++)
-            //{
-            //    msgs[i].Formatter = new BinaryMessageFormatter();
-            //    Console.WriteLine("消息内容：{0}", msgs[i].Body);
-            //}
         }
 
         //public bool Create()
@@ -80,5 +78,12 @@ namespace MsmqTest
         //    }
         //    return false;   
         //}
+    }
+
+    [Serializable]
+    public class MsmqData
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
     }
 }
